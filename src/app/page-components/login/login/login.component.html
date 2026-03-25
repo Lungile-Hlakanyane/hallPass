@@ -1,35 +1,71 @@
 <div class="auth-page">
+
   <!-- Header Section -->
   <div class="header">
     <i class="fa fa-calendar icon"></i>
-    <h2 style="color:#fff; font-weight:bold">HallPass</h2>
-    <!-- Animated text container -->
-    <p id="animated-text" style="color: #fff;">{{ sentences[currentIndex] }}</p>
+    <h2>HallPass</h2>
+
+    <p id="animated-text">
+      {{ sentences[currentIndex] }}
+    </p>
+
     <div class="dots">
-      <span *ngFor="let sentence of sentences; let i = index" [class.active]="i === currentIndex"></span>
+      <span *ngFor="let sentence of sentences; let i = index"
+            [class.active]="i === currentIndex">
+      </span>
     </div>
   </div>
+
   <!-- Form Section -->
   <div class="form-section">
-    <h3>Welcome to <strong> Mangaung Hall Booking App</strong></h3>
+
+    <h3>Welcome to <strong>Mangaung Hall Booking App</strong></h3>
     <p>Manage your hall bookings efficiently and effectively.</p>
+
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
       <div class="input-item">
         <input formControlName="email" placeholder="Your email" type="email">
       </div>
-      <div *ngIf="email.invalid && email.touched" class="error">Valid email is required</div>
-      <div class="input-item">
-        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Your password">
-        <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" (click)="togglePasswordVisibility()" class="password-toggle-icon"></i>
+
+      <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched" class="error">
+        Valid email is required
       </div>
-      <div *ngIf="password.invalid && password.touched" class="error">Password is required</div>
-      <button class="create-btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+      <div class="input-item password-wrapper">
+        <input [type]="showPassword ? 'text' : 'password'"
+               formControlName="password"
+               placeholder="Your password">
+
+        <i class="password-toggle-icon"
+           [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
+           (click)="togglePasswordVisibility()">
+        </i>
+      </div>
+
+      <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched" class="error">
+        Password is required
+      </div>
+
+      <!-- LOGIN BUTTON -->
+      <button class="create-btn" type="submit" [disabled]="loginForm.invalid">
+        Login
+      </button>
+
     </form>
+
     <div class="guest">
-      <span class="guest-link" (click)="navigate('/reset-pasword')"> Forgot password </span>
+      <span class="guest-link" (click)="navigate('/reset-password')">
+        Forgot password
+      </span>
     </div>
+
     <div class="social-login">
-      <button class="create-btn" (click)="navigate('/register')"> Create Account </button>
+      <button class="create-btn" (click)="navigate('/register')">
+        Create Account
+      </button>
     </div>
+
   </div>
+
 </div>
