@@ -37,65 +37,65 @@ export class LoginComponent  implements OnInit {
     }, 3000);
   }
 
-//  async onLogin() {
-//   if (this.loginForm.valid) {
-//     const loading = await this.loadingController.create({
-//       message: 'Logging in...',
-//     });
-//     await loading.present();
+ async onLogin() {
+  if (this.loginForm.valid) {
+    const loading = await this.loadingController.create({
+      message: 'Logging in...',
+    });
+    await loading.present();
 
-//     const email = this.loginForm.value.email;
-//     const password = this.loginForm.value.password;
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
 
-//     const users = [
-//       { email: 'lungilehlakanyane@gmail.com', password: '12345', role: 'Client', id: 1 },
-//       { email: 'lungahlakanyane@gmail.com', password: '12345', role: 'Municipality', id: 2 },
-//       { email: 'lungilevincenthlakanyane@gmail.com', password: '12345', role: 'Admin', id: 3 },
-//     ];
+    const users = [
+      { email: 'lungilehlakanyane@gmail.com', password: '12345', role: 'Client', id: 1 },
+      { email: 'lungahlakanyane@gmail.com', password: '12345', role: 'Municipality', id: 2 },
+      { email: 'lungilevincenthlakanyane@gmail.com', password: '12345', role: 'Admin', id: 3 },
+    ];
 
-//     const user = users.find((user) => user.email === email && user.password === password);
+    const user = users.find((user) => user.email === email && user.password === password);
 
-//     if (user) {
-//       localStorage.setItem('userRole', user.role);
-//       localStorage.setItem('userId', user.id.toString());
+    if (user) {
+      localStorage.setItem('userRole', user.role);
+      localStorage.setItem('userId', user.id.toString());
 
-//       await loading.dismiss();
+      await loading.dismiss();
 
-//       const toast = await this.toastController.create({
-//         message: 'You have successfully logged in...',
-//         duration: 2000,
-//         position: 'top',
-//         color: 'success',
-//       });
-//       await toast.present();
+      const toast = await this.toastController.create({
+        message: 'You have successfully logged in...',
+        duration: 2000,
+        position: 'top',
+        color: 'success',
+      });
+      await toast.present();
 
-//       let homePage;
-//       switch (user.role) {
-//         case 'Client':
-//           homePage = '/home';
-//           break;
-//         case 'Municipality':
-//           homePage = '/home';
-//           break;
-//         case 'Admin':
-//           homePage = '/home';
-//           break;
-//         default:
-//           homePage = '/home';
-//       }
-//       this.router.navigateByUrl(homePage);
-//     } else {
-//       await loading.dismiss();
-//       const toast = await this.toastController.create({
-//         message: 'Invalid email or password',
-//         duration: 2000,
-//         position: 'top',
-//         color: 'danger',
-//       });
-//       await toast.present();
-//     }
-//   }
-// }
+      let homePage;
+      switch (user.role) {
+        case 'Client':
+          homePage = '/home';
+          break;
+        case 'Municipality':
+          homePage = '/home';
+          break;
+        case 'Admin':
+          homePage = '/home';
+          break;
+        default:
+          homePage = '/home';
+      }
+      this.router.navigateByUrl(homePage);
+    } else {
+      await loading.dismiss();
+      const toast = await this.toastController.create({
+        message: 'Invalid email or password',
+        duration: 2000,
+        position: 'top',
+        color: 'danger',
+      });
+      await toast.present();
+    }
+  }
+}
 
 login(){
   this.router.navigateByUrl('/home');

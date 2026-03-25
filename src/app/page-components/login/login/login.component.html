@@ -1,69 +1,64 @@
 <div class="auth-page">
 
-  <!-- Header Section -->
-  <div class="header">
-    <i class="fa fa-calendar icon"></i>
-    <h2>HallPass</h2>
+  <div class="auth-container">
 
-    <p id="animated-text">
-      {{ sentences[currentIndex] }}
-    </p>
-
-    <div class="dots">
-      <span *ngFor="let sentence of sentences; let i = index"
-            [class.active]="i === currentIndex">
-      </span>
-    </div>
-  </div>
-
-  <!-- Form Section -->
-  <div class="form-section">
-
-    <h3>Welcome to <strong>Mangaung Hall Booking App</strong></h3>
-    <p>Manage your hall bookings efficiently and effectively.</p>
-
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-
-      <div class="input-item">
-        <input formControlName="email" placeholder="Your email" type="email">
-      </div>
-
-      <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched" class="error">
-        Valid email is required
-      </div>
-
-      <div class="input-item password-wrapper">
-        <input [type]="showPassword ? 'text' : 'password'"
-               formControlName="password"
-               placeholder="Your password">
-
-        <i class="password-toggle-icon"
-           [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
-           (click)="togglePasswordVisibility()">
-        </i>
-      </div>
-
-      <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched" class="error">
-        Password is required
-      </div>
-
-      <!-- LOGIN BUTTON -->
-      <button class="create-btn" type="submit" [disabled]="loginForm.invalid">
-        Login
-      </button>
-
-    </form>
-
-    <div class="guest">
-      <span class="guest-link" (click)="navigate('/reset-password')">
-        Forgot password
-      </span>
+    <!-- LEFT / TOP BRAND -->
+    <div class="brand">
+      <i class="fa fa-calendar icon"></i>
+      <h1>HallPass</h1>
+      <p>{{ sentences[currentIndex] }}</p>
     </div>
 
-    <div class="social-login">
-      <button class="create-btn" (click)="navigate('/register')">
+    <!-- LOGIN CARD -->
+    <div class="auth-card">
+
+      <h2>Welcome Back 👋</h2>
+      <p class="subtitle">Login to continue</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" formControlName="email" placeholder="Enter your email">
+        </div>
+
+        <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched" class="error">
+          Valid email is required
+        </div>
+
+        <div class="form-group password-group">
+          <label>Password</label>
+          <input [type]="showPassword ? 'text' : 'password'"
+                 formControlName="password"
+                 placeholder="Enter your password">
+
+          <i class="fa"
+             [class.fa-eye]="!showPassword"
+             [class.fa-eye-slash]="showPassword"
+             (click)="togglePasswordVisibility()">
+          </i>
+        </div>
+
+        <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched" class="error">
+          Password is required
+        </div>
+
+        <button class="login-btn" type="submit" [disabled]="loginForm.invalid">
+          Login
+        </button>
+
+      </form>
+
+      <div class="extra-links">
+        <span (click)="navigate('/reset-password')">Forgot password?</span>
+      </div>
+
+      <div class="divider">or</div>
+
+      <button class="register-btn" (click)="navigate('/register')">
         Create Account
       </button>
+
     </div>
 
   </div>

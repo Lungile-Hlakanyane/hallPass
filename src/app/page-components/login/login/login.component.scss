@@ -1,139 +1,151 @@
 .auth-page {
-  background: #3498db;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.brand {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+
+  .icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 25px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   color: #fff;
 
-  display: flex;
-  flex-direction: column;
-  height: 100vh; // 🔥 IMPORTANT
-
-  .header {
-    text-align: center;
-    padding: 40px 20px 20px;
-    position: relative;
-    z-index: 1;
-
-    .icon {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 20px;
-      margin: 0 0 10px;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    p {
-      font-size: 14px;
-      color: #ddd;
-    }
-
-    .dots {
-      margin-top: 20px;
-
-      span {
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        margin: 0 3px;
-        background: #fff;
-        border-radius: 50%;
-        opacity: 0.5;
-      }
-
-      .active {
-        opacity: 1;
-      }
-    }
+  h2 {
+    margin-bottom: 5px;
   }
 
-  .form-section {
-    background: #fff;
-    color: #000;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+  .subtitle {
+    font-size: 13px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+}
 
-    padding: 30px 20px;
+.form-group {
+  margin-bottom: 15px;
 
-    flex: 1;                // 🔥 prevents overlap
-    overflow-y: auto;       // 🔥 fixes touch issues
+  label {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+  }
 
-    h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
+  input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
 
-    p {
-      font-size: 14px;
-      color: #444;
-      margin-bottom: 20px;
-    }
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
 
-    .input-item {
-      background: #f3f3f3;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      padding: 10px;
-
-      display: flex;
-      align-items: center;
-
-      input {
-        width: 100%;
-        border: none;
-        background: none;
-        outline: none;
-      }
-    }
-
-    .password-wrapper {
-      position: relative;
-
-      .password-toggle-icon {
-        position: absolute;
-        right: 10px;
-        cursor: pointer;
-      }
-    }
-
-    .create-btn {
-      background: #3498db;
-      color: #fff;
-      border-radius: 12px;
-      font-weight: bold;
-
-      margin-top: 10px;
-      width: 100%;
-      padding: 12px;
-
-      border: none;
-      cursor: pointer;
-
-      position: relative;
-      z-index: 10; // 🔥 ensures clickable
-
-      pointer-events: auto;
-      touch-action: manipulation;
-    }
-
-    .guest {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 20px;
-      color: #555;
-
-      .guest-link {
-        color: #3498db;
-        font-weight: 600;
-        cursor: pointer;
-      }
-    }
-
-    .error {
-      color: red;
-      font-size: 12px;
-      margin-bottom: 10px;
+    &::placeholder {
+      color: #eee;
     }
   }
+}
+
+.password-group {
+  position: relative;
+
+  i {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    cursor: pointer;
+  }
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+
+  background: #fff;
+  color: #3498db;
+  font-weight: bold;
+
+  margin-top: 10px;
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.extra-links {
+  text-align: right;
+  font-size: 12px;
+  margin-top: 10px;
+
+  span {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.divider {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.error {
+  color: #ffcccc;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
