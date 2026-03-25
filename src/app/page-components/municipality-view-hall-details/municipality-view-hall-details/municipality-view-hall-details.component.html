@@ -1,0 +1,85 @@
+<ion-content>
+  <main>
+    <section class="main-top-header" style="padding:20px;">
+      <div class="title-container" (click)="goBack()">
+        <h1 style="color:#3498db; font-weight:bold"> &lt; Hall Details</h1>
+      </div>
+
+      <!-- Banner image container -->
+       <div class="img-container" style="padding:1px;">
+        <img src="../../../../assets/accomodation_02.jpeg" style="width:100%; height:200px; border-radius: 15px;">
+       </div>
+       <!-- End Banner Image container -->
+
+      <div>
+        <p style="font-size: 14px; color: #666;">View details about this hall, including its capacity, amenities, and reviews.</p>
+      </div>
+    </section>
+    <ion-segment [(ngModel)]="selectedTab" (ionChange)="segmentChanged($event)" scrollable>
+      <ion-segment-button value="info">Info</ion-segment-button>
+      <ion-segment-button value="images">Images</ion-segment-button>
+      <ion-segment-button value="reviews">Reviews</ion-segment-button>
+      <ion-segment-button value="reports" *ngIf="userRole==='Admin'">Reports</ion-segment-button>
+    </ion-segment>
+    <section class="hall-details" *ngIf="selectedTab === 'info'">
+      <div class="hall-info">
+        <h2 class="hall-name">{{ hall.name }}</h2>
+        <p class="hall-address">{{ hall.address }}</p>
+        <div class="hall-status" [ngClass]="{'available': hall.status === 'available', 'booked': hall.status === 'booked', 'not-booked': hall.status === 'not-booked'}"> {{ hall.status }} </div>
+        <p class="hall-capacity">Capacity: {{ hall.capacity }}</p>
+        <p class="hall-amenities">Amenities: {{ hall.amenities }}</p>
+        <div class="hall-rating">
+          <span *ngFor="let star of [].constructor(hall.rating)" class="star filled">&#9733;</span>
+          <span *ngFor="let star of [].constructor(5 - hall.rating)" class="star">&#9734;</span>
+        </div>
+
+        <div style="display:flex; justify-content: space-between; gap: 10px;">
+          <button class="edit-info" (click)="editInfo()" *ngIf="userRole==='Municipality'">Edit Info</button>
+          <button class="edit-info" (click)="deleteHall()" *ngIf="userRole==='Municipality'" 
+          style="background-color: rgb(141, 24, 24); color: #ffffff;">Delete</button>
+        </div>        
+        
+        <!-- Admin action btn container -->
+        <div class="action-btn-container" style="display:flex; justify-content: space-between; gap: 10px;" *ngIf="userRole==='Admin'">
+          <button class="edit-info" style="background-color: rgb(141, 24, 24); color: #ffffff;" (click)="deleteHall()">Delete</button>
+          <button class="edit-info" style="background-color: rgb(206, 173, 29); color: #ffffff;" (click)="blockHall()">Block</button>
+        </div>
+        <!-- End Admin action btn container -->
+      </div>
+    </section>
+
+    <section class="hall-images" *ngIf="selectedTab === 'images'">
+   <div class="image-gallery">
+    <img [src]="hall.images[0]" alt="Hall Image" class="main-image">
+    <div class="image-thumbnails">
+       <div class="thumbnails-container">
+         <img *ngFor="let image of hall.images" [src]="image" alt="Hall Image" class="thumbnail">
+       </div>
+     </div>
+    <button class="add-images" (click)="selectImage()" *ngIf="userRole==='Client'">Add Images</button>
+    <input type="file" #imageInput (change)="onImageSelected($event)" style="display: none;" *ngIf="userRole==='Client'">
+   </div>
+  </section>
+    <section class="reviews-section" *ngIf="selectedTab === 'reviews'">
+      <div class="review-item" *ngFor="let review of hall.reviews">
+        <p>{{ review.text }}</p>
+        <small>{{ review.author }}</small>
+        <div class="review-rating">
+          <span *ngFor="let star of [].constructor(review.rating)" class="star filled">&#9733;</span>
+          <span *ngFor="let star of [].constructor(5 - review.rating)" class="star">&#9734;</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="reports-section" *ngIf="selectedTab === 'reports' && userRole==='Admin'" style="padding: 15px;">
+     
+      <div class="reports-item" *ngFor="let report of hall.reports">
+        <p style="font-size:15px; color:#666">{{report.text}}</p>
+        <small style="color:#666">{{report.author}}</small>
+      </div>
+      
+    </section>
+
+  </main>
+
+</ion-content>

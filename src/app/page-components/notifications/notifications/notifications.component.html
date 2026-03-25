@@ -1,0 +1,32 @@
+<ion-content>
+  <main>
+    <section class="main-top-header" style="padding:20px;">
+      <div class="title-container">
+        <h1 style="color:#3498db; font-weight:bold" (click)="goBack()"> < Notifications</h1>
+      </div>
+      <div>
+        <p style="font-size: 14px; color: #666;">View your notifications related to bookings.</p>
+        <p style="font-size: 12px; color: #999;">Search for notifications by keyword or sender.</p>
+      </div>
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search notifications">
+        <button (click)="searchNotifications()">Search</button>
+      </div>
+    </section>
+    <section class="notifications-list">
+      <div class="notification-card" *ngFor="let notification of filteredNotifications">
+        <div class="notification-info">
+          <h2 class="notification-title">{{ notification.title }}</h2>
+          <p class="notification-message">{{ notification.message }}</p>
+          <p class="notification-time">{{ notification.time }}</p>
+        </div>
+        <div class="notification-action">
+          <button class="view-btn" (click)="viewNotification(notification)">View</button>
+        </div>
+      </div>
+      <section class="notifications-list">
+       <div *ngIf="filteredNotifications.length === 0">No notifications found.</div>
+      </section>
+    </section>
+  </main>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-content>
+  <main>
+    <section class="payment-form">
+      <h2 (click)="goBack()"> &lt; Payment Details</h2>
+      <div class="payment-summary">
+        <h3>Booking Summary</h3>
+        <p>Hall: {{ hall.name }}</p>
+        <p>Date: {{ booking.date }}</p>
+        <p>Time: {{ booking.time }}</p>
+        <p>Guests: {{ booking.guests }}</p>
+        <p>Event Type: {{ booking.eventType }}</p>
+        <p>Total Cost: {{ calculateTotalCost() }}</p>
+      </div>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Payment Method</ion-label>
+          <ion-select [(ngModel)]="paymentMethod" name="paymentMethod">
+            <ion-select-option value="credit-card">Credit Card</ion-select-option>
+            <ion-select-option value="paypal">PayPal</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div *ngIf="paymentMethod === 'credit-card'">
+          <ion-item>
+            <ion-label position="floating">Card Number</ion-label>
+            <ion-input type="number" [(ngModel)]="cardNumber" name="cardNumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Expiration Date</ion-label>
+            <ion-input type="text" [(ngModel)]="expirationDate" name="expirationDate"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">CVV</ion-label>
+            <ion-input type="number" [(ngModel)]="cvv" name="cvv"></ion-input>
+          </ion-item>
+        </div>
+        <div *ngIf="paymentMethod === 'paypal'">
+          <ion-item>
+            <ion-label position="floating">PayPal Email</ion-label>
+            <ion-input type="email" [(ngModel)]="paypalEmail" name="paypalEmail"></ion-input>
+          </ion-item>
+        </div>
+      </form>
+      <button class="pay-now" (click)="payNow()">Pay Now</button>
+    </section>
+  </main>
+</ion-content>

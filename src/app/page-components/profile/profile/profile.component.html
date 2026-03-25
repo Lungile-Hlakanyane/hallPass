@@ -1,0 +1,52 @@
+<div class="profile-page">
+  <div class="bck-btn-container">
+    <p style="font-size:30px; color:  #3498db; font-weight:bold" (click)="navigate('/home')">&lt; Profile</p>
+  </div>
+  <div class="profile-header">
+    <img class="avatar" src="../../../../assets/accomodation_02.jpeg"/>
+    <input type="file" #fileInput accept="image/*" hidden  />
+    <h2 class="name">Lungile Vincent Hlakanyane</h2>
+    <p class="email">lungilevincenthlakanyane.co.za</p>
+  </div>
+  <div *ngIf="warnings.length > 0" class="warning-messages">
+    <div *ngFor="let warning of warnings" class="warning-banner">
+      <i class="fa fa-warning" style="color: #856404;"></i>
+      <span><strong>Warning:</strong> {{ warning.reason }}</span>
+    </div>
+  </div>
+  <div class="stats-card" *ngIf="role === 'client'">
+    <div class="stats">
+      <div class="stat-item">
+        <i class="fa fa-calendar"></i>
+        <p style="font-size:13px;">{{bookingsCount}}</p>
+        <small>Bookings</small>
+      </div>
+      <div class="stat-item">
+        <i class="fa fa-warning"></i>
+        <p style="font-size:13px;">{{ warningsCount }}</p>
+        <small>Warnings</small>
+      </div>
+      <div class="stat-item">
+        <i class="fa fa-clock-o"></i>
+        <p style="font-size:13px;">{{ lastVisitDate | date:'dd MMM yyyy' }}</p>
+        <small>Last Visit</small>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="role === 'barber'" class="animated-welcome-card">
+    <i class="fa fa-sparkles pulse-icon"></i>
+    <h3>Welcome Back!</h3>
+    <p class="subtitle">Ready for a productive day? Let’s get started ✨</p>
+  </div>
+  <ul class="menu-list">
+    <li (click)="openSettings()">
+      <span>Settings</span>
+    </li>
+    <li (click)="editProfile()">
+      <span>Edit Profile</span>
+    </li>
+    <li (click)="logout()">
+      <span>Logout</span>
+    </li>
+  </ul>
+</div>

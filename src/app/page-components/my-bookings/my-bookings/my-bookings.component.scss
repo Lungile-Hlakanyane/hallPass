@@ -1,0 +1,111 @@
+$primary-color: #3498db;
+$background-color: #f4f4f4;
+
+ion-segment {
+  --color: #666;
+}
+
+main {
+  background: $background-color;
+  font-family: 'Poppins', sans-serif;
+}
+
+ion-segment-button {
+  --color-checked: #{$primary-color};
+  --indicator-height: 3px;
+}
+
+.bookings-list {
+  padding: 20px;
+
+  .booking-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    padding: 20px;
+
+    .hall-image {
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+
+    .hall-info {
+      .hall-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: $primary-color;
+      }
+
+      .hall-capacity, .hall-address {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .hall-rating {
+        .star {
+          color: gold;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+
+      .action-btn {
+        background-color: #ffffff;
+        color: $primary-color;
+        padding: 10px 15px;
+        border: 1px solid $primary-color;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        flex: 1;
+
+        &:hover {
+          background-color: $primary-color;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.main-top-header {
+  .search-bar {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 12px;
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 20%;
+      padding: 10px;
+      background-color: $primary-color;
+      color: #ffffff;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+ion-accordion-group {
+  margin-top: 20px;
+  ion-item {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .ion-padding {
+    font-size: 14px;
+    color: #555;
+  }
+}
+
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+ion-button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 0 12px 12px 0;
+  --background: #3498db;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+}

@@ -1,0 +1,40 @@
+<div class="auth-page">
+  <!-- Header Section -->
+  <div class="header">
+    <i class="fa fa-calendar icon"></i>
+    <h2 style="color:#fff;">Hall Booking App</h2>
+    <!-- Animated text container -->
+    <p id="animated-text" style="color: #fff;">{{ sentences[currentIndex] }}</p>
+    <div class="dots">
+      <span *ngFor="let sentence of sentences; let i = index" [class.active]="i === currentIndex"></span>
+    </div>
+  </div>
+  <!-- Form Section -->
+  <div class="form-section">
+    <h3>Create an Account</h3>
+    <p>Join our community to manage your hall bookings efficiently.</p>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="input-item">
+        <input formControlName="name" placeholder="Your name" type="text">
+      </div>
+      <div *ngIf="name.invalid && name.touched" class="error">Name is required</div>
+      <div class="input-item">
+        <input formControlName="email" placeholder="Your email" type="email">
+      </div>
+      <div *ngIf="email.invalid && email.touched" class="error">Valid email is required</div>
+      <div class="input-item">
+        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Your password">
+        <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" (click)="togglePasswordVisibility()" class="password-toggle-icon"></i>
+      </div>
+      <div *ngIf="password.invalid && password.touched" class="error">Password is required</div>
+      <div class="input-item">
+        <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" placeholder="Confirm your password">
+        <i [class]="showConfirmPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" (click)="toggleConfirmPasswordVisibility()" class="password-toggle-icon"></i>
+      </div>
+      <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="error">Confirm password is required</div>
+      <div *ngIf="registerForm.hasError('passwordMismatch')" class="error">Passwords do not match</div>
+      <button class="create-btn" type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+    <div class="guest"> Already have an account? <span class="guest-link" (click)="navigate('/login')">Login</span> </div>
+  </div>
+</div>

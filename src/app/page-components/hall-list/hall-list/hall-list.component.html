@@ -1,0 +1,30 @@
+<ion-content class="halls-list-container">
+  <div class="header-section">
+    <div class="logo-brand">
+      <div class="" (click)="goBack()"> <p style="color: white; font-size: 35px; font-weight: bold;"> < </p> </div>
+      <span class="logo-text">hallPass</span>
+    </div>
+    <h2 class="title">All Added Municipality Halls</h2>
+    <p class="subtitle">Find the perfect hall for events</p>
+  </div>
+  <div class="search-bar" style="padding: 22px; background-color:#f4f4f4;">
+      <input type="search" placeholder="Search for halls">
+      <button>Search</button>
+  </div>
+  <ion-list class="halls-list">
+    <ion-item *ngFor="let hall of halls" (click)="viewHallDetails(hall)" class="hall-item">
+      <ion-thumbnail slot="start">
+        <img src="../../../../assets/accomodation_02.jpeg" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ hall.name }}</h2>
+        <p>Capacity: {{ hall.capacity }} guests</p>
+        <p>Total Cost: {{ hall.totalCost }} per hour</p>
+        <ion-chip color="primary">
+          <ion-label>View Details</ion-label>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-chip>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

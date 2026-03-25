@@ -1,0 +1,97 @@
+.add-hall-container {
+  --padding: 20px;
+}
+
+.header-container {
+  padding: 20px;
+}
+
+.logo-brand {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 45px;
+  color:#3498db;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.hall-form {
+  padding: 20px;
+}
+
+.form-item {
+  margin-bottom: 20px;
+}
+
+.amenities-list {
+  padding: 0;
+  margin: 0;
+}
+
+.submit-btn {
+  --background: #3498db;
+  margin-top: 20px;
+}
+
+scss
+.file-input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.file-input-label {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f7f7f7;
+  transition: background-color 0.2s ease;
+}
+
+.file-input-label:hover {
+  background-color: #e5e5e5;
+}
+
+.file-input-label ion-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.file-input-text {
+  font-size: 14px;
+}
+
+.file-name {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+#file-input {
+  display: none;
+}

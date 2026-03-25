@@ -1,0 +1,29 @@
+<ion-content class="announcements-page" style="background: #f4f4f4;">
+  <div class="header-section">
+    <div class="logo-brand">
+      <div class="" (click)="goBack()">
+        <p style="color: white; font-size: 35px; font-weight: bold;"> < </p>
+      </div>
+      <span class="logo-text">hallPass</span>
+    </div>
+    <h2 class="title">Announcements</h2>
+    <p class="subtitle">List of announcements made</p>
+  </div>
+
+  <div class="search-container" style="padding: 20px;background: #f4f4f4;">
+    <div class="search-bar">
+        <input type="search" placeholder="Search for halls">
+        <button>Search</button>
+    </div>
+  </div>
+
+  <ion-list class="announcements-list" style="background: #f4f4f4;;">
+    <ion-item *ngFor="let announcement of announcements" style="padding:15px; --background: #f4f4f4;">
+      <ion-label>
+        <h2>{{ announcement.subject }}</h2>
+        <p>{{ announcement.description }}</p>
+        <p>{{ announcement.time | date: 'shortTime' }} - {{ announcement.date | date: 'mediumDate' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

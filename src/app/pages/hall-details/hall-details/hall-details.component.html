@@ -1,0 +1,52 @@
+<ion-content>
+  <main>
+
+    <section class="main-top-header" style="padding:20px;">
+      <div class="title-container" (click)="goBack()">
+     <h1 style="color:#3498db; font-weight:bold"> &lt; Hall Details</h1>
+    </div>
+    <div>
+      <p style="font-size: 14px; color: #666;">View details about this hall, including its capacity, amenities, and reviews.</p>
+     </div>
+    </section>
+
+    <section class="hall-details">
+
+     <div class="hall-image-gallery">
+  <img src="../../../../assets/accomodation_02.jpeg" alt="Hall Image" class="hall-image">
+  <div class="image-thumbnails">
+    <img *ngFor="let image of hall.images" [src]="image" alt="Hall Image" class="thumbnail">
+  </div>
+</div>
+
+      <div class="hall-info">
+        <h2 class="hall-name">{{ hall.name }}</h2>
+        <p class="hall-address">{{ hall.address }}</p>
+        <div class="hall-status" [ngClass]="{'available': hall.status === 'available', 'booked': hall.status === 'booked', 'not-booked': hall.status === 'not-booked'}">
+          {{ hall.status }}
+        </div>
+        <p class="hall-capacity">Capacity: {{ hall.capacity }}</p>
+        <p class="hall-amenities">Amenities: {{ hall.amenities }}</p>
+        <div class="hall-rating">
+          <span *ngFor="let star of [].constructor(hall.rating)" class="star filled">&#9733;</span>
+          <span *ngFor="let star of [].constructor(5 - hall.rating)" class="star">&#9734;</span>
+        </div>
+       <div class="action-btns-container" style="display: flex; justify-content: space-between; gap:10px;">
+         <button class="book-now" (click)="bookHall(hall)">Book Now</button>
+         <button class="book-now" (click)="addToFavorites()">Add to favorites</button>
+       </div>
+      </div>
+      <div class="reviews-section">
+        <h3>Reviews</h3>
+        <div class="review-item" *ngFor="let review of hall.reviews">
+          <p>{{ review.text }}</p>
+          <small>{{ review.author }}</small>
+          <div class="review-rating">
+            <span *ngFor="let star of [].constructor(review.rating)" class="star filled">&#9733;</span>
+            <span *ngFor="let star of [].constructor(5 - review.rating)" class="star">&#9734;</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</ion-content>

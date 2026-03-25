@@ -1,0 +1,18 @@
+<ion-content>
+  <div class="report-container">
+    <h1>Report Hall</h1>
+    <p>Please select a reason for reporting this hall:</p>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="reason">
+        <ion-item *ngFor="let option of reportOptions">
+          <ion-radio slot="start" [value]="option.value"></ion-radio>
+          <ion-label>{{ option.label }}</ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <div *ngIf="reason === 'other'">
+      <textarea [(ngModel)]="otherReason" placeholder="Please specify the reason..."></textarea>
+    </div>
+    <button (click)="submitReport()" class="submit-btn">Submit Report</button>
+  </div>
+</ion-content>

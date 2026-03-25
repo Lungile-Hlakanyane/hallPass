@@ -1,0 +1,174 @@
+.profile-page {
+  background: #f4f5f8;
+  padding: 20px;
+  .bck-btn-container {
+    margin-bottom: 20px;
+  }
+  .profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      margin-bottom: 15px;
+    }
+    .name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #222;
+    }
+    .email {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+  .tab-content {
+    margin-top: 20px;
+  }
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 48%;
+    }
+    .delete-btn {
+      background-color: #e74c3c;
+      color: #ffffff;
+    }
+    .block-btn {
+      background-color: #f1c40f;
+      color: #ffffff;
+    }
+  }
+}
+
+.user-card-info-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  .user-avatar {
+    margin-right: 20px;
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  .user-details {
+    .user-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .user-email {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    .user-registered {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    .user-status {
+      font-size: 14px;
+      &.active {
+        color: #2ecc71;
+      }
+      &.inactive {
+        color: #e74c3c;
+      }
+    }
+  }
+}
+
+.user-bookings-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  .booking-image {
+    margin-right: 20px;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+  .booking-details {
+    .hall-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .hall-location {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    .hall-amenities {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    .amount-paid {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    .payment-method {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}
+
+.reports-user-container {
+  padding: 20px;
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  ion-list {
+    ion-item {
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding:20px;
+      ion-label {
+        h3 {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        p {
+          font-size: 14px;
+          color: #666;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+

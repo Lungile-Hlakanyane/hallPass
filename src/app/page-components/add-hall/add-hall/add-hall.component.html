@@ -1,0 +1,47 @@
+<ion-content class="add-hall-container">
+  <div class="header-container">
+    <div class="logo-brand" (click)="goBack()">
+      <div class=""> </div>
+      <span class="logo-text"> < </span>
+    </div>
+    <h2 class="title">Add New Hall</h2>
+    <p class="subtitle">Fill in the details to add a new hall</p>
+  </div>
+  <form [formGroup]="hallForm" class="hall-form">
+    <ion-item lines="none" class="form-item">
+      <ion-label position="floating">Hall Name</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="form-item">
+      <p> Select a picture of the Hall</p>
+  <ion-label position="floating"></ion-label>
+  <div class="file-input-container">
+    <input type="file" formControlName="picture" (change)="onFileChange($event)" id="file-input" />
+    <label for="file-input" class="file-input-label">
+      <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+      <span class="file-input-text">Choose a file</span>
+    </label>
+    <span class="file-name">{{ fileName }}</span>
+  </div>
+</ion-item>
+    <ion-item lines="none" class="form-item">
+      <ion-label position="floating">Price of Booking</ion-label>
+      <ion-input formControlName="price" type="number"></ion-input>
+      <ion-select formControlName="priceUnit" slot="end">
+        <ion-select-option value="hour">Hour</ion-select-option>
+        <ion-select-option value="day">Day</ion-select-option>
+        <ion-select-option value="week">Week</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="form-item">
+      <ion-label>Amenities</ion-label>
+    </ion-item>
+    <ion-list formArrayName="amenities" class="amenities-list">
+      <ion-item *ngFor="let amenity of amenities; let i = index" lines="none">
+        <ion-checkbox formControlName="{{i}}"></ion-checkbox>
+        <ion-label>{{ amenity.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" class="submit-btn" (click)="onSubmit()">Add Hall</ion-button>
+  </form>
+</ion-content>

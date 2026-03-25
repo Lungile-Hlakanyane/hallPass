@@ -1,0 +1,60 @@
+<ion-content class="bookings-container">
+  <div class="header-section">
+    <div class="logo-brand">
+      <div class="" (click)="goBack()">
+        <p style="color: white; font-size: 35px; font-weight: bold;"> < </p>
+      </div>
+      <span class="logo-text">hallPass</span>
+    </div>
+    <h2 class="title">Municipality Hall Bookings</h2>
+    <p class="subtitle">Upcoming and past bookings</p>
+  </div>
+  <div class="search-bar" style="padding: 22px; background-color:#f4f4f4;">
+    <input type="search" placeholder="Search for bookings">
+    <button>Search</button>
+  </div>
+  <ion-segment [(ngModel)]="selectedTab" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="upcoming"> Upcoming </ion-segment-button>
+    <ion-segment-button value="past"> Past </ion-segment-button>
+  </ion-segment>
+  <ion-list class="bookings-list" *ngIf="selectedTab === 'upcoming'">
+    <ion-item *ngFor="let booking of upcomingBookings" class="booking-item">
+  <ion-thumbnail slot="start">
+    <img src="../../../../assets/accomodation_02.jpeg" />
+  </ion-thumbnail>
+  <ion-label>
+    <h2>{{ booking.hallName }}</h2>
+    <p>Booking Date: {{ booking.bookingDate }}</p>
+    <p>Event Date: {{ booking.eventDate }}</p>
+    <p>Total Cost: {{ booking.totalCost }}</p>
+    <div class="action-buttons" *ngIf="userRole==='Municipality'">
+      <ion-chip color="success" (click)="approveBooking(booking)">
+        <ion-label>Approve</ion-label>
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip color="danger" (click)="declineBooking(booking)">
+        <ion-label>Decline</ion-label>
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-chip>
+    </div>
+  </ion-label>
+</ion-item>
+  </ion-list>
+  <ion-list class="bookings-list" *ngIf="selectedTab === 'past'">
+    <ion-item *ngFor="let booking of pastBookings" class="booking-item">
+      <ion-thumbnail slot="start">
+        <img src="../../../../assets/accomodation_02.jpeg" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ booking.hallName }}</h2>
+        <p>Booking Date: {{ booking.bookingDate }}</p>
+        <p>Event Date: {{ booking.eventDate }}</p>
+        <p>Total Cost: {{ booking.totalCost }}</p>
+        <ion-chip color="primary" *ngIf="userRole==='Municipality'">
+          <ion-label>View Details</ion-label>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-chip>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-content>
+  <main>
+    <section class="main-top-header" style="padding:20px;">
+      <div class="title-container">
+        <h1 style="color:#3498db; font-weight:bold">My Bookings</h1>
+      </div>
+      <div>
+        <p style="font-size: 14px; color: #666;">View your booked halls and their details.</p>
+        <p style="font-size: 12px; color: #999;">Search for booked halls by name or location to find what you're looking for.</p>
+      </div>
+      <div class="search-bar">
+       <input type="text" [(ngModel)]="searchTerm" placeholder="Search by hall name or location">
+       <button (click)="searchBookings()">Search</button>
+      </div>
+    </section>
+    <ion-segment [(ngModel)]="selectedTab" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="upcoming"> Upcoming </ion-segment-button>
+      <ion-segment-button value="past"> Past </ion-segment-button>
+    </ion-segment>
+    <section class="bookings-list" *ngIf="selectedTab === 'upcoming'">
+      <div class="booking-card" *ngFor="let booking of filteredUpcomingBookings">
+        <div class="hall-image">
+          <img src="../../../../assets/accomodation_02.jpeg" alt="Hall Image">
+        </div>
+        <div class="hall-info">
+          <h2 class="hall-name">{{ booking.hallName }}</h2>
+          <p class="hall-capacity">Capacity: {{ booking.capacity }}</p>
+          <p class="hall-address">{{ booking.address }}</p>
+          <div class="hall-rating">
+            <span *ngFor="let star of [].constructor(booking.rating)" class="star filled">&#9733;</span>
+            <span *ngFor="let star of [].constructor(5 - booking.rating)" class="star">&#9734;</span>
+          </div>
+        </div>
+        <button class="view-btn" (click)="navigate('/view-hall-details')" 
+        style="color:#3498db; font-weight:bold">View</button>
+      </div>
+    </section>
+    <section class="bookings-list" *ngIf="selectedTab === 'past'">
+  <div class="booking-card" *ngFor="let booking of filteredUpcomingBookings">
+    <div class="hall-image">
+      <img src="../../../../assets/accomodation_02.jpeg" alt="Hall Image">
+    </div>
+    <div class="hall-info">
+      <h2 class="hall-name">{{ booking.hallName }}</h2>
+      <p class="hall-capacity">Capacity: {{ booking.capacity }}</p>
+      <p class="hall-address">{{ booking.address }}</p>
+      <div class="hall-rating">
+        <span *ngFor="let star of [].constructor(booking.rating)" class="star filled">&#9733;</span>
+        <span *ngFor="let star of [].constructor(5 - booking.rating)" class="star">&#9734;</span>
+      </div>
+    </div>
+    <div class="quick-actions">
+      <button class="action-btn" (click)="rateBooking(booking)">Rate</button>
+      <button class="action-btn" (click)="report(booking)">Report</button>
+    </div>
+  </div>
+</section>
+  </main>
+</ion-content>

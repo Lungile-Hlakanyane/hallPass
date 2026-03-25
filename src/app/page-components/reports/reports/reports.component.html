@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="reports-wrapper" style="padding: 20px; background-color:#f4f4f4;">
+    <div class="action-btn-container" style="padding: 20px 0; display: flex; gap: 15px;">
+      <p (click)="goBack()" style="font-size: 35px; font-weight: bold; color:#3498db; position: relative; bottom:10px;;"> < </p>
+      <div>
+        <p style="position: relative; top: 5px; font-size: 25px; color:#3498db; font-weight: bold;">Reports</p>
+        <p style="font-size: 14px; color: #666;">View and manage reports for the halls</p>
+      </div>
+    </div>
+    <div class="search-bar" style="padding: 22px;">
+      <input type="search" placeholder="Search for reports" [(ngModel)]="searchQuery" (keyup)="searchReports()">
+      <button (click)="searchReports()">Search</button>
+    </div>
+    <div class="reports-feed">
+      <div class="report-card" *ngFor="let report of reports">
+        <h3>{{ report.hallName }}</h3>
+        <p>{{ report.location }}</p>
+        <p>Reported by: {{ report.reporter }}</p>
+        <p>Reason: {{ report.reason }}</p>
+        <p>Status: {{ report.status }}</p>
+        <div class="report-actions" *ngIf="userRole==='Municipality'">
+          <ion-button fill="outline" color="success" size="small" (click)="resolveReport(report)">Resolve</ion-button>
+          <ion-button fill="outline" color="warning" size="small" (click)="assignReport(report)">Assign</ion-button>
+          <ion-button fill="outline" color="danger" size="small" (click)="deleteReport(report)">Delete</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

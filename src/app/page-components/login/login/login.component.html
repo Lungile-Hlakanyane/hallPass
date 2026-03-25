@@ -1,0 +1,39 @@
+<div class="auth-page">
+  <!-- Header Section -->
+  <div class="header">
+    <i class="fa fa-calendar icon"></i>
+    <h2 style="color:#fff; font-weight:bold">HallPass</h2>
+    <!-- Animated text container -->
+    <p id="animated-text" style="color: #fff;">{{ sentences[currentIndex] }}</p>
+    <div class="dots">
+      <span *ngFor="let sentence of sentences; let i = index" [class.active]="i === currentIndex"></span>
+    </div>
+  </div>
+  <!-- Form Section -->
+  <div class="form-section">
+    <h3>Welcome to <strong> Mangaung Hall Booking App</strong></h3>
+    <p>Manage your hall bookings efficiently and effectively.</p>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="input-item">
+        <input formControlName="email" placeholder="Your email" type="email">
+      </div>
+      <div *ngIf="email.invalid && email.touched" class="error">Valid email is required</div>
+      <div class="input-item">
+        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Your password">
+        <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" (click)="togglePasswordVisibility()" class="password-toggle-icon"></i>
+      </div>
+      <div *ngIf="password.invalid && password.touched" class="error">Password is required</div>
+      <button class="create-btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <div class="guest">
+      <span class="guest-link" (click)="navigate('/reset-pasword')"> Forgot password </span>
+    </div>
+    <div class="social-login">
+      <button class="create-btn" (click)="navigate('/register')"> Create Account </button>
+    </div>
+  </div>
+  <div class="powered-by" style="background: #fff; padding-top:240px;">
+    <img src="../../../../assets/MMM Logo-icon.jpeg">
+    <p style="color:#3498db;">THIS APPLICATION IS POWERED BY MANGAUNG MUNICIPALITY.</p>
+  </div>
+</div>

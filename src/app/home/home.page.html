@@ -1,0 +1,67 @@
+<ion-content>
+  <main>
+  <section class="hero">
+
+    <div class="main-container-for-menu" style="display: flex; justify-content: space-between;">
+      <div>
+        <p style="font-weight:bold; font-size: 30px; color:#3498db;">hallPass<p>
+      </div>
+      <div class="menu-icon"  (click)="openMenuModal()">
+       <div class="bar1"></div>
+       <div class="bar2"></div>
+       <div class="bar3"></div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h2>Find the perfect hall for your event</h2>
+      <p>Search for halls in your area and book now</p>
+      
+     <div class="search-bar">
+      <input type="search" placeholder="Search for halls" [(ngModel)]="searchQuery">
+      <button (click)="searchHalls()">Search</button>
+     </div>
+
+    </div>
+
+  </section>
+  <section class="featured-halls">
+    <h2>Featured Halls</h2>
+    <div class="hall-feed">
+      <div class="hall-card" *ngFor="let hall of featuredHalls">
+        <img src="../../assets/accomodation_02.jpeg" alt="Hall Image" class="hall-image">
+        <div class="card-content">
+          <div class="card-header">
+            <h3 class="hall-name">{{ hall.name }}</h3>
+            <p class="hall-address">{{ hall.address }}</p>
+            <div class="hall-status" [ngClass]="{'available': hall.status === 'available', 'booked': hall.status === 'booked', 'not-booked': hall.status === 'not-booked'}">
+              {{ hall.status }}
+            </div>
+          </div>
+          <p class="hall-capacity">Capacity: {{ hall.capacity }}</p>
+          <p class="hall-amenities">Amenities: {{ hall.amenities }}</p>
+          <div class="hall-rating">
+            <span *ngFor="let star of [].constructor(hall.rating)" class="star filled">&#9733;</span>
+            <span *ngFor="let star of [].constructor(5 - hall.rating)" class="star">&#9734;</span>
+          </div>
+          <div class="card-footer">
+            <button class="book-now" (click)="navigate('/hall-details')" *ngIf="userRole==='Client'">Book Now</button>
+          </div>
+          <div class="comment-section">
+            <div class="existing-comments" *ngIf="hall.comments.length > 0">
+              <div *ngFor="let comment of hall.comments" class="comment-item">
+                <p>{{ comment.text }}</p>
+                <small>{{ comment.author }}</small>
+              </div>
+            </div>
+            <div class="comment-input">
+              <input type="text" placeholder="Write a comment..." [(ngModel)]="hall.newComment">
+              <button class="post-comment" (click)="addComment(hall)">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</ion-content>

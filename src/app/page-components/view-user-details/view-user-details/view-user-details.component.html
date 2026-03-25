@@ -1,0 +1,71 @@
+<ion-content>
+  <div class="profile-page">
+  <div class="bck-btn-container">
+    <p style="font-size:30px; color: #3498db; font-weight:bold" (click)="goBack()">&lt; User Details</p>
+  </div>
+  <div class="profile-header">
+    <img class="avatar" src="../../../../assets/accomodation_02.jpeg"/>
+    <h2 class="name">Lungile Hlakanyane</h2>
+    <p class="email">lungilehlakanyane.co.za</p>
+  </div>
+  <ion-segment [(ngModel)]="selectedTab" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="info">Info</ion-segment-button>
+    <ion-segment-button value="bookings">Bookings</ion-segment-button>
+    <ion-segment-button value="reports">Reports</ion-segment-button>
+  </ion-segment>
+  <div class="tab-content" *ngIf="selectedTab === 'info'">
+
+    <div class="user-card-info-card">
+      <div class="user-avatar">
+      <img src="../../../../assets/accomodation_02.jpeg" alt="User Avatar">
+    </div>
+  <div class="user-details">
+    <h2 class="user-name">{{ user.name }}</h2>
+    <p class="user-email">{{ user.email }}</p>
+    <p class="user-registered">Registered: {{ user.registeredWhen }}</p>
+    <p class="user-status" [ngClass]="{'active': user.activeStatus, 'inactive': !user.activeStatus}">
+      {{ user.activeStatus ? 'Active' : 'Inactive' }}
+    </p>
+  </div>
+</div>
+   
+  </div>
+  <div class="tab-content" *ngIf="selectedTab === 'bookings'">
+    
+  <div class="user-bookings-card">
+  <div class="booking-image">
+    <img src="../../../../assets/accomodation_02.jpeg" alt="Hall Image">
+  </div>
+  <div class="booking-details">
+    <h2 class="hall-name">{{ booking.hallName }}</h2>
+    <p class="hall-location">{{ booking.location }}</p>
+    <p class="hall-amenities">Amenities: {{ booking.amenities }}</p>
+    <p class="amount-paid">Amount Paid: R{{ booking.amountPaid }}</p>
+    <p class="payment-method">Payment Method: {{ booking.paymentMethod }}</p>
+  </div>
+</div>
+
+  </div>
+  <div class="tab-content" *ngIf="selectedTab === 'reports'">
+
+   <div class="reports-user-container">
+   <h2>Reports</h2>
+   <ion-list>
+    <ion-item *ngFor="let report of reports">
+      <ion-label>
+        <h3>{{ report.title }}</h3>
+        <p>{{ report.description }}</p>
+        <p>Reported by: {{ report.reportedBy }}</p>
+        <p>Reported on: {{ report.reportedOn | date }}</p>
+      </ion-label>
+    </ion-item>
+   </ion-list>
+  </div>
+
+  </div>
+  <div class="action-buttons">
+    <button class="delete-btn" (click)="deleteHall()">Delete</button>
+    <button class="block-btn" (click)="blockHall()">Block</button>
+  </div>
+</div>
+</ion-content>

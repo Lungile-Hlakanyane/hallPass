@@ -1,0 +1,73 @@
+<ion-content style="--padding: 20px;">
+  <div class="banner-img-container">
+    <img src="../../../../assets/accomodation_02.jpeg" alt="Dashboard Banner" class="banner-img" (click)="openActionSheet()"/>
+  </div>
+  <div class="bookings-wrapper" style="padding: 20px">
+    <!-- 🔰 Header Branding -->
+    <div class="header">
+      <div class="logo-brand" style="display: flex; gap:5px;">
+        <div class="logo-dot" style="position:relative; top:6px;"></div>
+        <span class="logo-text">HallNest</span>
+      </div>
+      <h2 class="title">Dashboard</h2>
+      <p class="subtitle">Welcome back, manage your halls efficiently</p>
+    </div>
+    <!-- 📊 Summary Cards -->
+    <div class="dashboard-cards">
+      <div class="summary-card" (click)="navigate('/hall-list')">
+        <ion-icon name="business-outline"></ion-icon>
+        <div class="info">
+          <h3>{{ hallsCount }}</h3>
+          <p>Municipal Halls</p>
+        </div>
+      </div>
+      <div class="summary-card" (click)="navigate('/municipality-bookings')">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <div class="info">
+          <h3>{{ upcomingBookingsCount }}</h3>
+          <p>Upcoming Bookings</p>
+        </div>
+      </div>
+      <div class="summary-card" (click)="navigate('/total-revenue')">
+        <ion-icon name="cash-outline"></ion-icon>
+        <div class="info">
+          <h3>R{{ totalRevenue }}</h3>
+          <p>Total Revenue</p>
+        </div>
+      </div>
+      <div class="summary-card" (click)="navigate('/pending-requests')">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <div class="info">
+          <h3>{{ pendingRequestsCount }}</h3>
+          <p>Pending Requests</p>
+        </div>
+      </div>
+      <div class="summary-card" (click)="navigate('/reports')">
+        <ion-icon name="cash-outline"></ion-icon>
+        <div class="info">
+          <h3>24</h3>
+          <p>Reports</p>
+        </div>
+      </div>
+      <div class="summary-card" (click)="navigate('/manage-users')">
+        <ion-icon name="cash-outline"></ion-icon>
+        <div class="info">
+          <h3>24</h3>
+          <p>Users</p>
+        </div>
+      </div>
+    </div>
+    <!-- 🏡 Quick Actions -->
+    <div class="section-title">Quick Actions</div>
+    <div class="quick-actions">
+     <ion-button expand="block" style="--background: #3498db;" (click)="openAnnouncementModal()">
+      <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+       Create Announcement
+      </ion-button>
+      <ion-button expand="block" fill="outline" color="primary" (click)="navigate('/announcements')">
+        <ion-icon name="business-outline" slot="start"></ion-icon>
+       View Announcements
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

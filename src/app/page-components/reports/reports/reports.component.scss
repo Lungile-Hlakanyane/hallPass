@@ -1,0 +1,58 @@
+$primary-color: #3498db;
+$background-color: #f4f4f4;
+
+.reports-wrapper {
+  padding: 20px;
+}
+
+.report-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+
+  .report-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+.search-bar {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input[type="search"] {
+    padding: 15px;
+    border: none;
+    border-radius: 12px 0 0 12px;
+    width: 300px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 0 12px 12px 0;
+    background-color: $primary-color;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+}

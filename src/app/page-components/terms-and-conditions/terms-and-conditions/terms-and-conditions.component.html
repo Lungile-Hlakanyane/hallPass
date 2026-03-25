@@ -1,0 +1,21 @@
+<ion-content class="terms-page">
+  <div class="header-section">
+    <div class="logo-brand">
+      <span class="logo-text" (click)="goBack()"> < hallPass</span>
+    </div>
+    <h2 class="title"> Terms and Conditions</h2>
+  </div>
+  <div class="terms-content">
+    <ion-list>
+      <ion-item *ngFor="let term of terms">
+        <ion-label>
+          <h2>{{ term.title }}</h2>
+          <p>{{ term.description }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="accept-btn-container">
+    <ion-button expand="block" class="accept-btn" (click)="acceptTerms()">Accept Terms & Conditions</ion-button>
+  </div>
+</ion-content>

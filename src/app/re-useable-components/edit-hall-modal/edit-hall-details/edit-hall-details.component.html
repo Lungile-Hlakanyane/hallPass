@@ -1,0 +1,28 @@
+<ion-content>
+  <form [formGroup]="hallForm" (ngSubmit)="saveHallDetails()">
+    <ion-item>
+      <ion-label position="floating">Hall Name</ion-label>
+      <ion-input formControlName="hallName" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input formControlName="address" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Capacity</ion-label>
+      <ion-input formControlName="capacity" type="number"></ion-input>
+    </ion-item>
+    <ion-list>
+      <ion-list-header>Amenities</ion-list-header>
+      <ion-item *ngFor="let amenity of amenities">
+        <ion-checkbox formControlName="amenities" [value]="amenity.value"></ion-checkbox>
+        <ion-label>{{ amenity.label }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label position="floating">Price</ion-label>
+      <ion-input formControlName="price" type="number"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit">Save</ion-button>
+  </form>
+</ion-content>

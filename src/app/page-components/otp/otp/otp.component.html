@@ -1,0 +1,26 @@
+<div class="auth-page">
+  <!-- Header Section -->
+  <div class="header">
+    <i class="fa fa-calendar icon"></i>
+    <h2 style="color:#fff;">Hall Booking App</h2>
+    <!-- Animated text container -->
+    <p id="animated-text" style="color: #fff;">{{ sentences[currentIndex] }}</p>
+    <div class="dots">
+      <span *ngFor="let sentence of sentences; let i = index" [class.active]="i === currentIndex"></span>
+    </div>
+  </div>
+  <!-- Form Section -->
+  <div class="form-section">
+    <h3>Verify Your Email</h3>
+    <p>Please enter the OTP sent to {{ email }} to verify your account.</p>
+    <form [formGroup]="otpForm" (ngSubmit)="onVerify()">
+      <div class="input-item">
+        <input formControlName="otp" placeholder="Enter OTP" type="text">
+      </div>
+      <div *ngIf="otp?.invalid && otp?.touched" class="error">OTP is required</div>
+      <button class="create-btn" type="submit" [disabled]="otpForm.invalid">Verify</button>
+    </form>
+    <div class="guest"> Didn't receive OTP? <span class="guest-link" (click)="resendOtp()">Resend OTP</span> </div>
+  </div>
+</div>
+

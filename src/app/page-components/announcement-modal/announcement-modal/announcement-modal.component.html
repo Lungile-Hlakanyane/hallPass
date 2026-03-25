@@ -1,0 +1,32 @@
+
+<ion-content class="announcement-page">
+  <div class="header-section">
+    <div class="logo-brand">
+      <div class="" (click)="closeModal()">
+        <p style="color: white; font-size: 35px; font-weight: bold;"> < </p>
+      </div>
+      <span class="logo-text">hallPass</span>
+    </div>
+    <h2 class="title">Send Announcement</h2>
+    <p class="subtitle">Fill in the details to send an announcement</p>
+  </div>
+  <div class="announcement-form">
+    <ion-item>
+      <ion-label position="floating">Subject</ion-label>
+      <ion-input [(ngModel)]="announcement.subject"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Target Audience</ion-label>
+      <ion-select [(ngModel)]="announcement.targetAudience">
+        <ion-select-option value="Municipality">Municipality</ion-select-option>
+        <ion-select-option value="Client">Client</ion-select-option>
+        <ion-select-option value="Both">Both</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Announcement</ion-label>
+      <ion-textarea [(ngModel)]="announcement.announcement"></ion-textarea>
+    </ion-item>
+    <ion-button expand="block" (click)="createAnnouncement()">Send Announcement</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+
+      <ion-tab-button tab="home">
+       <ion-icon name="home-outline"></ion-icon>
+       <ion-label>Home</ion-label>
+      </ion-tab-button>
+
+       <ion-tab-button tab="municipality-bookings"  *ngIf="userRole==='Municipality'">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Bookings</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="my-bookings" *ngIf="userRole==='Client'">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>My Bookings</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="admin-dashboard" *ngIf="userRole==='Admin'">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Dasboard</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="manage-users" *ngIf="userRole==='Admin'">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Users</ion-label>
+      </ion-tab-button>
+
+       <ion-tab-button tab="municipality-home"  *ngIf="userRole==='Municipality'">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="notifications" *ngIf="userRole==='Client'">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <ion-label>Notifications</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="profile" >
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

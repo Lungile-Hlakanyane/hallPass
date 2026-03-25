@@ -1,0 +1,35 @@
+<div class="favorites-wrapper">
+  <div class="header">
+    <div class="logo-brand">
+      <i class="fa fa-calendar icon"></i>
+      <span class="logo-text" (click)="goBack()"> < HallPass</span>
+    </div>
+    <h2 class="favorites-title">Favorite Halls</h2>
+  </div>
+  <ion-searchbar [(ngModel)]="searchTerm" placeholder="Search favorite halls..." (ionInput)="filterFavorites()" debounce="300" color="light" class="search-bar">
+  </ion-searchbar>
+  <div class="favorites-feed" *ngIf="filteredFavorites.length > 0; else noFavorites">
+    <div class="hall-card" *ngFor="let hall of filteredFavorites">
+      <img src="../../../assets/accomodation_02.jpeg" alt="Hall Image" class="hall-image" />
+      <div class="card-content">
+        <div class="card-header">
+          <h3 class="hall-name">{{ hall.name }}</h3>
+          <div class="stars">
+            <ion-icon name="star" *ngFor="let star of [].constructor(hall.rating)"></ion-icon>
+          </div>
+        </div>
+        <p class="hall-address">{{ hall.address }}</p>
+        <div class="card-footer">
+          <ion-button size="small" color="primary" fill="outline" (click)="viewHall(hall)" expand="block"> View </ion-button>
+          <ion-button size="small" color="danger" fill="outline" (click)="remove(hall)" expand="block"> Remove </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noFavorites>
+    <div class="no-favorites">
+      <ion-icon name="heart-dislike" size="large" color="medium"></ion-icon>
+      <p>No favorite halls yet.</p>
+    </div>
+  </ng-template>
+</div>

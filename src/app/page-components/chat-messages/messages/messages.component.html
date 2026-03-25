@@ -1,0 +1,31 @@
+<ion-content fullscreen>
+  <!-- Header back button -->
+  <div class="action-btn-container" style="padding: 20px; display: flex; gap:15px;">
+    <p style="position: relative; top: 5px; font-size: 25px; 
+    position: relative; right: 5px; color: #3498db; font-weight: bold;" (click)="goBack()"> < Messages</p>
+  </div>
+  <!-- Scrollable area -->
+  <div class="chat-scroll-area">
+    <div class="chat-header">
+      <img class="chat-avatar" src="../../../../assets/accomodation_02.jpeg" alt="User Avatar" />
+      <h2 class="chat-name" style="font-weight: bold; color:#3498db;">HallPass</h2>
+      <p class="chat-subtitle">hallPass.co.za</p>
+      <p class="chat-subtitle">This conversation is encrypted using end-to-end encryption.</p>
+    </div>
+    <div class="chat-window">
+      <div class="message-list">
+        <div *ngFor="let message of messages" [ngClass]="{ 'message-bubble': true, 'received': true }" >
+          <p (click)="actions()">{{ message.text }}</p>
+          <span class="time">{{ message.date }} {{ message.time }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fixed message input -->
+  <div class="message-input-fixed">
+    <div class="message-input">
+      <ion-input placeholder="Type your message..." class="message-box" disabled></ion-input>
+      <ion-button fill="solid" color="primary" disabled>Send</ion-button>
+    </div>
+  </div>
+</ion-content>

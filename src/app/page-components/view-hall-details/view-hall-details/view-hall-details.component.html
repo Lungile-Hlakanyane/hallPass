@@ -1,0 +1,35 @@
+<ion-content>
+  <main>
+    <section class="main-top-header" style="padding:20px;">
+      <div class="title-container">
+        <h1 style="color:#3498db; font-weight:bold" (click)="goBack()"> < Hall Booking Details</h1>
+      </div>
+      <div>
+        <p style="font-size: 14px; color: #666;">View the details of your hall booking.</p>
+      </div>
+    </section>
+    <section class="hall-details">
+      <div class="hall-image">
+        <img src="../../../../assets/accomodation_02.jpeg" alt="Hall Image">
+      </div>
+      <div class="hall-info">
+        <h2 class="hall-name">{{ booking.hallName }}</h2>
+        <p class="hall-capacity">Capacity: {{ booking.capacity }}</p>
+        <p class="hall-date">Date Booked: {{ booking.dateBooked }}</p>
+        <p class="hall-ceremony">Ceremony Type: {{ booking.ceremonyType }}</p>
+        <p class="hall-amount">Amount Paid: {{ booking.amountPaid }}</p>
+        <div class="hall-rating">
+          <span *ngFor="let star of [].constructor(booking.rating)" class="star filled">&#9733;</span>
+          <span *ngFor="let star of [].constructor(5 - booking.rating)" class="star">&#9734;</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="action-btn">
+     <button class="view-invoice-btn">View Invoice</button>
+     <button class="cancel-booking-btn" (click)="cancel()">Cancel Booking</button>
+    </section>
+
+
+  </main>
+</ion-content>

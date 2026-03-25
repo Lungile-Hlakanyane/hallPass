@@ -1,0 +1,248 @@
+$primary-color: #3498db;
+$background-color: #f4f4f4;
+
+main {
+  background: $background-color;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+  margin-bottom: 20px;
+
+  .hero-content {
+    text-align: center;
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      input[type="search"] {
+        padding: 15px;
+        border: none;
+        border-radius: 12px 0 0 12px;
+        width: 300px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 15px 20px;
+        border: none;
+        border-radius: 0 12px 12px 0;
+        background-color: $primary-color;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.featured-halls {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .hall-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hall-card {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+
+    .hall-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+
+      .card-header {
+        margin-bottom: 10px;
+
+        .hall-name {
+          font-size: 18px;
+          font-weight: 600;
+          color: $primary-color;
+        }
+
+        .hall-address {
+          font-size: 14px;
+          color: #555;
+        }
+      }
+
+      .hall-capacity, .hall-amenities {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .book-now {
+          background-color: $primary-color;
+          color: #ffffff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 16px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.hall-card {
+  .hall-status {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+
+    &.available {
+      background-color: #2ecc71;
+      color: #ffffff;
+    }
+
+    &.booked {
+      background-color: #e74c3c;
+      color: #ffffff;
+    }
+
+    &.not-booked {
+      background-color: #f1c40f;
+      color: #ffffff;
+    }
+  }
+
+  .hall-rating {
+    margin-bottom: 10px;
+
+    ion-icon {
+      color: gold;
+      font-size: 18px;
+    }
+  }
+
+  .comment-section {
+    padding: 10px 0;
+
+    .existing-comments {
+      margin-bottom: 10px;
+
+      .comment-item {
+        margin-bottom: 10px;
+
+        p {
+          font-size: 14px;
+          color: #555;
+        }
+
+        small {
+          font-size: 12px;
+          color: #777;
+        }
+      }
+    }
+
+    .comment-input {
+      --background: #f9f9f9;
+      border-radius: 8px;
+      padding: 5px;
+    }
+  }
+}
+
+scss
+.star {
+  color: gold;
+  font-size: 18px;
+}
+
+.star.filled {
+  color: gold;
+}
+
+.comment-section {
+  padding: 10px 0;
+  .existing-comments {
+    margin-bottom: 10px;
+    .comment-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      &:last-child {
+        border-bottom: none;
+      }
+      p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 5px;
+      }
+      small {
+        font-size: 12px;
+        color: #777;
+      }
+    }
+  }
+  .comment-input {
+    display: flex;
+    align-items: center;
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px 0 0 8px;
+      font-size: 14px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      background-color: $primary-color;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
+}
+
+.menu-icon {
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  top:20px;
+  .bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: #3498db;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+}

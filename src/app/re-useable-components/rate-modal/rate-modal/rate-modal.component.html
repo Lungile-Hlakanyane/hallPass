@@ -1,0 +1,13 @@
+<ion-content>
+  <div class="rating-container">
+    <h1>Rate {{ hallName }}</h1>
+    <div class="rating-stars">
+      <span *ngFor="let star of [].constructor(5); let i = index" (click)="rateHall(i + 1)" [class.filled]="i < rating">
+        &#9733;
+      </span>
+    </div>
+    <p *ngIf="rating > 0">{{ rating }} star{{ rating > 1 ? 's' : '' }}</p>
+    <textarea [(ngModel)]="comment" placeholder="Add a comment..."></textarea>
+    <button (click)="submitRating()">Submit Rating</button>
+  </div>
+</ion-content>
